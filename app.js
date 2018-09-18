@@ -1,5 +1,6 @@
 /* eslint no-console: 0 */
 'use strict';
+require('dotenv').config();
 const nodemailer = require('nodemailer');
 const xlsx = require('node-xlsx');
 const fs = require('fs');
@@ -9,13 +10,13 @@ const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
     port: 587,
     auth: {
-        user: 'oaaxqiyu6ihjk7dz@ethereal.email',
-        pass: '4Jkkwr2GpPqhVVSw5q'
+        user: process.env.FAKESMTP_USER,
+        pass: process.env.FAKESMTP_PSW
     }
 });
 
 //Read data from an Excel spreadsheet.
-const data = xlsx.parse(__dirname + '/data/duesRecords.xlsx'); // parses a file
+// const data = xlsx.parse(__dirname + '/data/duesRecords.xlsx'); // parses a file
 const data = xlsx.parse(fs.readFileSync(__dirname + '/data/duesRecords.xlsx'));
 const list = clientWithDebts(data[0].data);
 
@@ -67,4 +68,18 @@ function sendEmailReminder(list) {
 sendEmailReminder(list);
 
 
-// Find their phone number and send them personalized reminders
+// // Find their phone number and send them personalized reminders
+// // Download the helper library from https://www.twilio.com/docs/node/install
+// // Your Account Sid and Auth Token from twilio.com/console
+// const accountSid = process.env.TWILLIO_SID;
+// const authToken = process.env.TWILLIO_TOKEN;
+// const client = require('twilio')(accountSid, authToken);
+
+// client.messages
+//     .create({
+//         body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+//         from: '+393475131691',
+//         to: '+393475131691'
+//     })
+//     .then(message => console.log(message.sid))
+//     .done();
