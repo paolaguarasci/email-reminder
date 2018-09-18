@@ -1,0 +1,11 @@
+{
+  "name": "sendemail",
+  "version": "1.0.0",
+  "description": "command line tool to send email and txt msg",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paola Guarasci",
+  "license": "MIT"
+}
