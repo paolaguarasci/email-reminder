@@ -9,6 +9,7 @@
   "author": "Paola Guarasci",
   "license": "MIT",
   "dependencies": {
+    "node-xlsx": "^0.12.1",
     "nodemailer": "^4.6.8"
   }
 }
