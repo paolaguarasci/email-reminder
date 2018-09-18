@@ -1,4 +1,4 @@
-# Send email by shell
+# Send email reminder
 This script gets data from a datasheet and send an email reminder to clients that have not all month's payed. I got the idea from the book [Automate the Boring Stuff with Python](https://automatetheboringstuff.com/) (*Written by Al Sweigart*). But, I swear, I have not looked at the source code 🤓 !!!
 
 What this script does:
